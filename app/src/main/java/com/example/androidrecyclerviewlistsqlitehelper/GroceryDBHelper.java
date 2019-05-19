@@ -1,6 +1,7 @@
 package com.example.androidrecyclerviewlistsqlitehelper;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import com.example.androidrecyclerviewlistsqlitehelper.GroceryContract.*;
@@ -17,7 +18,7 @@ public class GroceryDBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
     final String SQL_CREATE_GROCERYLIST_TABLE = "CREATE TABLE " +
             GroceryContract.GroceryEntry.TABLE_NAME + "("+
-            GroceryEntry._ID + "INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            GroceryEntry._ID + "INTEGER PRIMARY KEY, " +
             GroceryEntry.COLUMN_MANE + "TEXT NOT NULL, " +
             GroceryEntry.COLUMN_AMOUNT + "INTEGER NOT NULL, " +
             GroceryEntry.COLUMN_TIMESTAMP + "TIMESTAMP DEFAULT CURRENT_TIMESTAMP" +
@@ -30,5 +31,13 @@ public class GroceryDBHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
       db.execSQL("DROP TABLE IF EXISTS " + GroceryEntry.TABLE_NAME);
       onCreate(db);
+    }
+
+    public Cursor fetchData()
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String str = ("SELECT rowid _id, * FROM SQL_CREATE_GROCERYLIST_TABLE");
+        return db.rawQuery(str,null);
+
     }
 }

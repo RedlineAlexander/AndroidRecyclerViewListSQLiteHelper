@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
                 null,
                 null,
                 null,
-                GroceryContract.GroceryEntry.COLUMN_TIMESTAMP + "DESC"
+                null//GroceryContract.GroceryEntry.COLUMN_TIMESTAMP + " DESC"
         );
     }
 }

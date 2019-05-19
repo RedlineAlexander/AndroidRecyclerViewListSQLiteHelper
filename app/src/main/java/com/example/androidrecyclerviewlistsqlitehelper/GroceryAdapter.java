@@ -13,9 +13,9 @@ public class GroceryAdapter extends RecyclerView.Adapter<GroceryAdapter.GroceryV
 
    private Context mContext;
    private Cursor mCursor;
-
+   private GroceryDBHelper groceryDBHelper;
    public GroceryAdapter(Context context, Cursor cursor){
-
+     //  mCursor = groceryDBHelper.fetchData();
    }
 
 
