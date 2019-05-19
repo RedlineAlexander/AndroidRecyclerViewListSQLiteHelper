@@ -14,15 +14,15 @@
 
 
     <TextView
-            android:id="@+id/textview_amount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/edittext_name"
-            android:layout_centerHorizontal="true"
-            android:text="0"
+        android:id="@+id/textview_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edittext_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="4dp"
 
-            android:textSize="50sp"
-            android:layout_marginTop="4dp"/>
+        android:text="0"
+        android:textSize="50sp" />
 
     <Button
             android:id="@+id/button_decrease"

@@ -36,8 +36,7 @@ public class GroceryDBHelper extends SQLiteOpenHelper {
     public Cursor fetchData()
     {
         SQLiteDatabase db = this.getReadableDatabase();
-        String str = ("SELECT rowid _id, * FROM SQL_CREATE_GROCERYLIST_TABLE");
+        String str = ("SELECT * FROM groceryList");
         return db.rawQuery(str,null);
-
     }
 }

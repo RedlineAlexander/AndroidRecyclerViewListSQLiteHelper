@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         mAdapter = new GroceryAdapter(this, getAllItems());
         recyclerView.setAdapter(mAdapter);
 
+        getData();
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
                 ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
@@ -79,6 +80,14 @@ public class MainActivity extends AppCompatActivity {
                 addItem();
             }
         });
+    }
+
+    private void getData() {
+        GroceryDBHelper dbHelper = new GroceryDBHelper(this);
+        Cursor cursor = dbHelper.fetchData();
+        mAdapter = new GroceryAdapter(this,cursor);
+        RecyclerView recyclerView = findViewById(R.id.recyclerview);
+        recyclerView.setAdapter(mAdapter);
     }
 
     private void increase(){
